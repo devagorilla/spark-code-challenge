@@ -20,7 +20,7 @@ object Dependencies {
   )
 
   object V {
-    val spark     = "1.3.0"
+    val spark     = "1.5.0"
     val specs2    = "1.13" // -> "1.13" when we bump to Scala 2.10.0
     val guava     = "11.0.1"
     // Add versions for your additional libraries here...

@@ -24,7 +24,7 @@ object SparkExampleProjectBuild extends Build {
   }
 
   // Define our project, with basic project information and library dependencies
-  lazy val project = Project("spark-example-project", file("."))
+  lazy val project = Project("spark-code-challenge", file("."))
     .settings(buildSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
@@ -32,13 +32,12 @@ object SparkExampleProjectBuild extends Build {
         Libraries.sparkMllib,
         Libraries.sparkSql,
         Libraries.guava,
-        Libraries.specs2,
-        "org.apache.kafka" % "kafka_2.10" % "0.8.1"
-          exclude("javax.jms", "jms")
-          exclude("com.sun.jdmk", "jmxtools")
-          exclude("com.sun.jmx", "jmxri"),
-        "org.apache.spark" % "spark-streaming_2.10" % "1.3.0" % "provided",
-        "org.apache.spark" % "spark-streaming-kafka_2.10" % "1.3.0"
+        Libraries.specs2
+//        "org.apache.kafka" % "kafka_2.10" % "0.8.1"
+//          exclude("org.jboss.netty", "netty")
+//          exclude("javax.jms", "jms")
+//          exclude("com.sun.jdmk", "jmxtools")
+//          exclude("com.sun.jmx", "jmxri")
         // Add your additional libraries here (comma-separated)...
       )
     )

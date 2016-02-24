@@ -38,9 +38,6 @@ class CSVToJsonTest extends Specification {
       val tempDir = Files.createTempDir()
 
       val inputFile = new File("input.csv").getAbsolutePath
-     // val inWriter = new FileWriter(inputFile)
-      //inWriter.write("hack hack hack and hack")
-      //inWriter.close
       val outputDir = new File(tempDir, "output").getAbsolutePath
 
       CSVToJson.execute(
@@ -50,7 +47,7 @@ class CSVToJsonTest extends Specification {
 
       val outputFile = new File(outputDir, "part-00000")
       val actual = Source.fromFile(outputFile).getLines.map(_.split("\n")).next()
-      actual contains  "{\"auctionid,bid,bidtime,bidder,bidderrate,openbid,price\":\"1638893549,175,2.230949,schadenfreud,0,99,177.5\"}"
+      actual contains  "{\"bidderrate\":\"0\",\"price\":\"177.5\",\"bidtime\":\"2.230949\",\"openbid\":\"99\",\"auctionid\":\"1638893549\",\"bid\":\"175\",\"bidder\":\"schadenfreud\"}"
     }
   }
 

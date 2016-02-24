@@ -10,15 +10,15 @@ import org.json4s.jackson.JsonMethods._
 
 import org.json4s.JsonDSL._
 
-import kafka.producer.ProducerConfig
-import java.util.Properties
-import kafka.producer.Producer
-import scala.util.Random
-import kafka.producer.Producer
-import kafka.producer.Producer
-import kafka.producer.Producer
-import kafka.producer.KeyedMessage
-import java.util.Date
+//import kafka.producer.ProducerConfig
+//import java.util.Properties
+//import kafka.producer.Producer
+//import scala.util.Random
+//import kafka.producer.Producer
+//import kafka.producer.Producer
+//import kafka.producer.Producer
+//import kafka.producer.KeyedMessage
+//import java.util.Date
 
 
 /**
@@ -92,38 +92,38 @@ object CSVToJson {
     }
 
     //10000 colobu localhost:9092
-    def publish2Kafka(rdd: RDD[String]) : Unit = {
-
-      //val events = 1
-      val topic = "code-challenge"
-      val brokers = "54.149.56.104:9092"
-      //val rnd = new Random()
-      val props = new Properties()
-      props.put("metadata.broker.list", brokers)
-      props.put("serializer.class", "kafka.serializer.StringEncoder")
-      //props.put("partitioner.class", "com.colobu.kafka.SimplePartitioner")
-      props.put("producer.type", "async")
-      //props.put("request.required.acks", "1")
-
-      val config = new ProducerConfig(props)
-      val producer = new Producer[String, String](config)
-      //val t = System.currentTimeMillis()
-      //for (nEvents <- Range(0, events)) {
-        //val runtime = new Date().getTime()
-        val ip = "64.135.177.114"
-        rdd.map { x =>
-
-          val data = new KeyedMessage[String, String](topic, ip, x)
-          producer.send(data)
-
-        }
-
-      //}
-
-      //System.out.println("sent per second: " + events * 1000 / (System.currentTimeMillis() - t));
-      producer.close()
-
-    }
+//    def publish2Kafka(rdd: RDD[String]) : Unit = {
+//
+//      //val events = 1
+//      val topic = "code-challenge"
+//      val brokers = "54.149.56.104:9092"
+//      //val rnd = new Random()
+//      val props = new Properties()
+//      props.put("metadata.broker.list", brokers)
+//      props.put("serializer.class", "kafka.serializer.StringEncoder")
+//      //props.put("partitioner.class", "com.colobu.kafka.SimplePartitioner")
+//      props.put("producer.type", "async")
+//      //props.put("request.required.acks", "1")
+//
+//      val config = new ProducerConfig(props)
+//      val producer = new Producer[String, String](config)
+//      //val t = System.currentTimeMillis()
+//      //for (nEvents <- Range(0, events)) {
+//        //val runtime = new Date().getTime()
+//        val ip = "64.135.177.114"
+//        rdd.map { x =>
+//
+//          val data = new KeyedMessage[String, String](topic, ip, x)
+//          producer.send(data)
+//
+//        }
+//
+//      //}
+//
+//      //System.out.println("sent per second: " + events * 1000 / (System.currentTimeMillis() - t));
+//      producer.close()
+//
+//    }
 
     val parsed = parserRows(txt).cache()
     val headers = getHeaders(parsed)
@@ -131,7 +131,7 @@ object CSVToJson {
     val mappedCsv = getMap(parsed, bcHeaders)
     val jsonLines = toJsonLines(mappedCsv)
     writeJsonLinesTxtFile(jsonLines)
-    publish2Kafka(jsonLines)
+    //publish2Kafka(jsonLines)
 
   }
 
