@@ -32,12 +32,12 @@ object SparkExampleProjectBuild extends Build {
         Libraries.sparkMllib,
         Libraries.sparkSql,
         Libraries.guava,
-        Libraries.specs2
-//        "org.apache.kafka" % "kafka_2.10" % "0.8.1"
-//          exclude("org.jboss.netty", "netty")
-//          exclude("javax.jms", "jms")
-//          exclude("com.sun.jdmk", "jmxtools")
-//          exclude("com.sun.jmx", "jmxri")
+        Libraries.specs2,
+        "org.apache.kafka" % "kafka_2.10" % "0.8.1"
+          exclude("org.jboss.netty", "netty")
+          exclude("javax.jms", "jms")
+          exclude("com.sun.jdmk", "jmxtools")
+          exclude("com.sun.jmx", "jmxri")
         // Add your additional libraries here (comma-separated)...
       )
     )

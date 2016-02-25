@@ -16,12 +16,12 @@ package com.snowplowanalytics.spark
 // Spark
 import org.apache.spark.SparkContext
 
-object WordCountJob {
+object CSVToJSONJob {
   
   def main(args: Array[String]) {
     
     // Run the word count
-    WordCount.execute(
+    CSVToJSON.execute(
       master    = None,
       args      = args.toList,
       jars      = List(SparkContext.jarOfObject(this).get)

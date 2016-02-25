@@ -40,9 +40,9 @@ class CSVToJsonTest extends Specification {
       val inputFile = new File("input.csv").getAbsolutePath
       val outputDir = new File(tempDir, "output").getAbsolutePath
 
-      CSVToJson.execute(
+      CSVToJSON.execute(
         master = Some("local"),
-        args = List(inputFile, outputDir)
+        args = List(inputFile, outputDir, "true", "false")
       )
 
       val outputFile = new File(outputDir, "part-00000")
@@ -51,27 +51,4 @@ class CSVToJsonTest extends Specification {
     }
   }
 
-//  "A Conversion job" should {
-//
-//    "failed" in {
-//
-//      val tempDir = Files.createTempDir()
-//      val inputFile = new File(tempDir, "input").getAbsolutePath
-//      val inWriter = new FileWriter(inputFile)
-//      inWriter.write("auctionid,bid,bidtime,bidder,bidderrate,openbid,price\n")
-//      inWriter.append("\n")
-//      inWriter.append("auctionid,bid,bidtime,bidder,bidderrate,openbid,price\n")
-//      inWriter.close
-//      val outputDir = new File(tempDir, "output").getAbsolutePath
-//
-//      Option1CSVToJson.execute(
-//        master = Some("local"),
-//        args   = List(inputFile, outputDir)
-//      )
-//
-//      val outputFile = new File(outputDir, "part-00000")
-//      val actual = Source.fromFile(outputFile).getLines.map(_.split("\n")).next()
-//      actual contains  "{\"auctionid,bid,bidtime,bidder,bidderrate,openbid,price\":\"1638893549,175,2.230949,schadenfreud,0,99,177.5\"}"
-//    }
-//  }
 }
