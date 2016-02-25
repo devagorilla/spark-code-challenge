@@ -1,7 +1,7 @@
 # spark-code-challenge
 
-The code is built from this Spark Example Project
-[![Build Status](https://travis-ci.org/snowplow/spark-example-project.png)](https://travis-ci.org/snowplow/spark-example-project)
+The Spark code is built from this [snowplow-example] and the Kafka code from [kafka-example]
+
 
 ## Introduction
 
@@ -74,4 +74,8 @@ output file
 enable/disable file dump
 enable/disable kafka dump
 
+
+[snowplow-example]: https://github.com/snowplow/spark-example-project
+[kafka-example]: https://github.com/vngrs/activator-hello-kafka
+[spark]: http://spark-project.org/
 
